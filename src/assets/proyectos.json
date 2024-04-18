@@ -24,7 +24,7 @@
         "Titulo": "Intertainment",
         "link" : "https://intertainment.vercel.app/",
         "codigo" : "https://github.com/Fran3103/intertainment.git",
-        "img" : "public/img/Proyectos/intertainment.webp",
+        "img" : "img/Proyectos/intertainment.webp",
         "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
         "descripcion" : "Esta es aplicación web de entretenimiento de varias páginas, los datos son obtenidos con un JSON, realizo enrutamiento, gestión de estado y funcionalidad de búsqueda."
        
@@ -35,7 +35,7 @@
         "Titulo": "App Country",
         "link" : "https://appcountry-fa.netlify.app//",
         "codigo" : "https://github.com/Fran3103/CountryApp.git",
-        "img" : "public/img/Proyectos/Countries.webp",
+        "img" : "img/Proyectos/Countries.webp",
         "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
         "descripcion" : "Aplicaion de Datos de paises, con filtrado y busqueda, los datos son obtenes por una api de paises, tambien tiene modo dark y light para elegir."
     
@@ -45,7 +45,7 @@
         "Titulo": "Dine Restaurant",
         "link" : "https://dine-restaurant-smoky.vercel.app/",
         "codigo" : "https://github.com/Fran3103/dine-restaurant.git",
-        "img" : "public/img/Proyectos/dine.webp",
+        "img" : "img/Proyectos/dine.webp",
         "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
         "descripcion" : "Este sitio web de dos páginas, con validacion de formularios"
     }
