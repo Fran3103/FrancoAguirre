@@ -5,7 +5,7 @@
         "Titulo": "Photosnap ",
         "link" : "https://photosnap-flame.vercel.app/",
         "codigo" : "https://github.com/Fran3103/Photosnap.git",
-        "img" : "public/img/Proyectos/photosnap.webp",
+        "img" : "img/Proyectos/photosnap.webp",
         "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
         "descripcion" : " Este es un sitio de marketing para una aplicación para compartir fotos. "
 
@@ -15,7 +15,7 @@
         "Titulo": "Audiophile-Ecommerce",
         "link" : "https://audiophile-ecommerce-khaki.vercel.app/",
         "codigo" : "https://github.com/Fran3103/audiophile-ecommerce.git",
-        "img" : "public/img/Proyectos/audiophile.webp",
+        "img" : "/img/Proyectos/audiophile.webp",
         "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
         "descripcion" :" Esta es un sitio web de comercio electrónico de varias páginas. Los datos son obtenidos por un JSON. "
     },
