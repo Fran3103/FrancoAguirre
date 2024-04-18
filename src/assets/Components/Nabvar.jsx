@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin  } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
 const Nabvar = () => {
   return (
-    <div className='max-w-[1240px] m-auto p-4  mx-4 flex flex-col gap-2 items-center sm:flex-row sm:justify-evenly xl:justify-between bg-gray-900 rounded-lg mt-1 lg:mx-12 xl:m-auto'>
+    <div className='max-w-[1240px] m-auto p-4  mx-4 flex flex-col gap-2 items-center sm:flex-row sm:justify-evenly xl:justify-between bg-gray-900 rounded-lg mt-2 lg:mx-12 xl:m-auto lg:mt-2 xl:mt-2'>
         <img src={logo} alt="logo"  className='w-60 shadow-sm shadow-slate-400 h-full'/>
         <img src={logo2} alt="logo" className='w-40 hidden ' />
         <ul className='flex gap-5  mt-3 items-center'>
