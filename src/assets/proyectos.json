@@ -1,53 +1,47 @@
 [
     {
-    
-        "id" : 1,       
-        "Titulo": "Photosnap ",
-        "link" : "https://photosnap-flame.vercel.app/",
-        "codigo" : "https://github.com/Fran3103/Photosnap.git",
-        "img" : "img/Proyectos/photosnap.webp",
-        "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
-        "descripcion" : " Este es un sitio de marketing para una aplicación para compartir fotos. "
-
+        "id": 1,       
+        "Titulo": "Photosnap",
+        "link": "https://photosnap-flame.vercel.app/",
+        "codigo": "https://github.com/Fran3103/Photosnap.git",
+        "img": "img/Proyectos/photosnap.webp",
+        "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
+        "descripcion": "Este es un sitio de marketing para una aplicación para compartir fotos."
     },
     {
-        "id" : 2,        
+        "id": 2,        
         "Titulo": "Audiophile-Ecommerce",
-        "link" : "https://audiophile-ecommerce-khaki.vercel.app/",
-        "codigo" : "https://github.com/Fran3103/audiophile-ecommerce.git",
-        "img" : "/img/Proyectos/audiophile.webp",
-        "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
-        "descripcion" :" Esta es un sitio web de comercio electrónico de varias páginas. Los datos son obtenidos por un JSON. "
+        "link": "https://audiophile-ecommerce-khaki.vercel.app/",
+        "codigo": "https://github.com/Fran3103/audiophile-ecommerce.git",
+        "img": "img/Proyectos/audiophile.webp",
+        "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
+        "descripcion": "Este es un sitio web de comercio electrónico de varias páginas. Los datos son obtenidos por un JSON."
     },
     {
-        "id" : 3,
+        "id": 3,
         "Titulo": "Intertainment",
-        "link" : "https://intertainment.vercel.app/",
-        "codigo" : "https://github.com/Fran3103/intertainment.git",
-        "img" : "img/Proyectos/intertainment.webp",
-        "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
-        "descripcion" : "Esta es aplicación web de entretenimiento de varias páginas, los datos son obtenidos con un JSON, realizo enrutamiento, gestión de estado y funcionalidad de búsqueda."
-       
-    
+        "link": "https://intertainment.vercel.app/",
+        "codigo": "https://github.com/Fran3103/intertainment.git",
+        "img": "img/Proyectos/intertainment.webp",
+        "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
+        "descripcion": "Esta es una aplicación web de entretenimiento de varias páginas. Los datos son obtenidos con un JSON, realiza enrutamiento, gestión de estado y funcionalidad de búsqueda."
     },
     {
-        "id" : 4,
+        "id": 4,
         "Titulo": "App Country",
-        "link" : "https://appcountry-fa.netlify.app//",
-        "codigo" : "https://github.com/Fran3103/CountryApp.git",
-        "img" : "img/Proyectos/Countries.webp",
-        "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
-        "descripcion" : "Aplicaion de Datos de paises, con filtrado y busqueda, los datos son obtenes por una api de paises, tambien tiene modo dark y light para elegir."
-    
+        "link": "https://appcountry-fa.netlify.app/",
+        "codigo": "https://github.com/Fran3103/CountryApp.git",
+        "img": "img/Proyectos/Countries.webp",
+        "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
+        "descripcion": "Aplicación de datos de países, con filtrado y búsqueda. Los datos son obtenidos por una API de países, también tiene modo oscuro y claro para elegir."
     },
     {
-        "id" : 5,       
+        "id": 5,       
         "Titulo": "Dine Restaurant",
-        "link" : "https://dine-restaurant-smoky.vercel.app/",
-        "codigo" : "https://github.com/Fran3103/dine-restaurant.git",
-        "img" : "img/Proyectos/dine.webp",
-        "tecnologias" : ["HTML", "Tailwind", "JavaScript", "ReactJS"],
-        "descripcion" : "Este sitio web de dos páginas, con validacion de formularios"
+        "link": "https://dine-restaurant-smoky.vercel.app/",
+        "codigo": "https://github.com/Fran3103/dine-restaurant.git",
+        "img": "img/Proyectos/dine.webp",
+        "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
+        "descripcion": "Este sitio web de dos páginas cuenta con validación de formularios."
     }
-
 ]
