@@ -9,9 +9,9 @@ const Page = () => {
   return (
     <div className='max-w-[1240px] m-auto mt-4 p-4 flex flex-col lg:grid lg:grid-cols-[200px] xl:grid-cols-[260px] lg:grid-rows-[400px] place-content-center mb-4 gap-4 lg:px-12 xl:px-0'>
         <header className='flex flex-col items-center w-full p-4 lg:w- xl:w-60 lg:h-96 bg-black rounded-lg px-2 lg:p-4 lg:col-start-1 col-end-2 row-start-1 lg:mb-0'>
-            <img src={foto} alt="foto" className='w-72 h-72 lg:w-48 lg:h-48'/>
+            <img src={foto} alt="foto" className='w-72 h-72 lg:w-56 lg:h-48 '/>
             <h1 className="text-2xl text-center md:text-left lg:text-xl mt-4">Franco Aguirre <span className='font-bold'>Programador Frontend</span></h1>
-            <ul className='flex gap-3 mt-6 justify-start items-center text-3xl'>
+            <ul className='flex gap-3 mt-6 justify-start items-center text-3xl mr-3'>
                 <FaHtml5 /><FaCss3Alt /><IoLogoJavascript /><SiTailwindcss /><FaReact />
             </ul>
         </header>
