@@ -41,8 +41,8 @@ const Page = () => {
                         <div className='lg:hidden'>
                             <img src={datos.img} alt={datos.Titulo} className='w-full rounded-t-xl hover:opacity-90 h-40'/>
                             <div className='flex flex-col gap-2 p-3 '>
-                                <h3 className='text-lg text-center'>{datos.Titulo}</h3>
-                                <p className='font-thin'>{datos.descripcion}</p>
+                                <h3 className='text-2xl text-start font-semibold text-white'>{datos.Titulo}</h3>
+                                <p className='font-normal  text-xl text-white'>{datos.descripcion}</p>
                                 <div>
                                     <p>Tecnologías:</p>
                                     <div className='flex items-center gap-3 flex-wrap'>
@@ -50,15 +50,15 @@ const Page = () => {
                                     </div>
                                 </div>
                                 <div className='flex items-center justify-around'>
-                                    <a href={datos.codigo} target='_blank' className='hover:text-gray-400'>Código</a>
-                                    <a href={datos.link} target='_blank' className='hover:text-gray-400'>Proyecto</a>
+                                    <a href={datos.codigo} target='_blank' className='text-lg text-blue-300 hover:text-blue-400'>Código</a>
+                                    <a href={datos.link} target='_blank' className='text-lg text-blue-300 hover:text-blue-400'>Proyecto</a>
                                 </div>
                             </div>
                         </div>
                         <div className='hidden lg:flex w-full h-full text-xl overflow-hidden'>
                             <div className='flex flex-col gap-2 p-4 w-full'>
                                 <div className='flex items-center justify-between w-full'>
-                                    <h3 className='text-2xl text-start font-semibold'>{datos.Titulo}</h3>
+                                    <h3 className='text-2xl text-start font-semibold text-white'>{datos.Titulo}</h3>
                                     <div className='flex items-center justify-start gap-5'>
                                         <a href={datos.codigo} target='_blank' className='text-lg text-blue-300 hover:text-blue-400'>Código</a>
                                         <a href={datos.link} target='_blank' className='text-lg text-blue-300 hover:text-blue-400'>Proyecto</a>
@@ -70,7 +70,7 @@ const Page = () => {
                                         {datos.tecnologias.map((tec, idx) => (<li key={idx} className='list-none font-normal'>{tec}</li>))}
                                     </div>
                                 </div>
-                                <p className='font-light  text-xl'>{datos.descripcion}</p>
+                                <p className='font-normal  text-xl text-white'>{datos.descripcion}</p>
                             </div>
                         </div>
                         <img src={datos.img} alt={datos.Titulo} className='w-full rounded-b-xl hover:opacity-90 h-72 hidden lg:block'/>
