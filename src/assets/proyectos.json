@@ -29,7 +29,7 @@
     {
         "id": 4,
         "Titulo": "App Country",
-        "link": "https://appcountry-fa.netlify.app/",
+        "link": "https://country-app-fa.vercel.app/",
         "codigo": "https://github.com/Fran3103/CountryApp.git",
         "img": "img/Proyectos/Countries.webp",
         "tecnologias": ["HTML", "Tailwind", "JavaScript", "ReactJS"],
