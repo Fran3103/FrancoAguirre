@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           <h1 className="text-5xl lg:text-7xl font-bold tracking-tighter leading-tight mb-6">
             FRANCO AGUIRRE<br />
           
-            <span className="text-brand-cyan">  DESARROLLADOR <br /> JAVA</span>
+            <span className="text-brand-cyan text-4xl lg:text-6xl">  DESARROLLADOR <br /> JAVA</span>
           </h1>
           
           <div className="font-mono bg-brand-card/50 p-6 rounded-lg border border-brand-border mb-8 max-w-xl mx-auto lg:mx-0">
