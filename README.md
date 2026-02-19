@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Franco Aguirre
 
-# Run and deploy your AI Studio app
+Descripción
+- Repositorio con portafolio centrado en desarrollo backend con Java y Spring Boot.
+- Ejemplos de APIs REST, migraciones de base de datos y despliegue en contenedores.
 
-This contains everything you need to run your app locally.
+Sobre mí
+- Desarrollador backend orientado a Java/Spring Boot: diseño de APIs escalables, seguridad y buenas prácticas.
+- Experiencia en integración de bases de datos, migraciones y automatización de despliegues.
+- Desarrollo ocasional de UI con React/TypeScript cuando el proyecto lo requiere.
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+Habilidades principales
+- Lenguajes: Java (principal), JavaScript / TypeScript (frontend)
+- Frameworks: Spring Boot, Spring Security, Spring Data, Hibernate/JPA
+- Migraciones y documentación: Flyway, Swagger/OpenAPI
+- Bases de datos: PostgreSQL, MySQL
+- Contenerización y CI/CD: Docker, docker-compose
+- Testing y herramientas: Postman
+- VCS y colaboración: Git, PRs, revisiones de código
 
-## Run Locally
+Proyectos destacados 
+- API REST con autenticación y autorización (Spring Security) y documentación OpenAPI.
+- Microservicio con migraciones gestionadas por Flyway y persistencia en PostgreSQL/MySQL.
+- Aplicación full‑stack: backend en Spring Boot + frontend en React/TypeScript (cuando aplica).
+- Contenedorización y despliegue local con Docker/docker-compose; colecciones Postman para pruebas.
 
-**Prerequisites:**  Node.js
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Contribuciones y contacto
+- Pull requests bienvenidos: describir cambios y pruebas realizadas en el PR.
+- Añadir email o enlace a GitHub para contacto profesional en el README principal.
+
+Licencia
+- Indicar la licencia del proyecto (por ejemplo, MIT) en LICENSE.md.
