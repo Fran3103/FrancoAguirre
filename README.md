@@ -19,16 +19,14 @@ Habilidades principales
 - VCS y colaboración: Git, PRs, revisiones de código
 
 Proyectos destacados 
-- API REST con autenticación y autorización (Spring Security) y documentación OpenAPI.
-- Microservicio con migraciones gestionadas por Flyway y persistencia en PostgreSQL/MySQL.
-- Aplicación full‑stack: backend en Spring Boot + frontend en React/TypeScript (cuando aplica).
-- Contenedorización y despliegue local con Docker/docker-compose; colecciones Postman para pruebas.
+- Aplicación diseñada para facilitar la planificación y gestión de pedidos de cócteles para eventos.
+- https://github.com/Fran3103/CocktailOps
+- API REST backend completa para un sistema de gestión de tickets (help desk/soporte técnico).
+- https://github.com/Fran3103/ticketing-api
+- Backend de e-commerce construido con arquitectura de microservicios usando Spring Boot + Spring Cloud.
+- https://github.com/Fran3103/api-ecommerce
+- Landing page de venta para un curso de cremas artesanales, optimizada para conversión (CTA, secciones de valor, responsive) y desplegada en producción..
+- https://github.com/Fran3103/bellezaGlow
 
 
 
-Contribuciones y contacto
-- Pull requests bienvenidos: describir cambios y pruebas realizadas en el PR.
-- Añadir email o enlace a GitHub para contacto profesional en el README principal.
-
-Licencia
-- Indicar la licencia del proyecto (por ejemplo, MIT) en LICENSE.md.
