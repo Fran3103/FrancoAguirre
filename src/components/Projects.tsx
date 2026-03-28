@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PROJECTS.map((project) => (
-            <ProjectCard  project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
