@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
       <footer className="py-12 px-6 border-t border-brand-border bg-brand-dark flex flex-col items-center">
         <p className="text-gray-500 text-sm mb-4 text-center">
-          © 2026 Franco Aguirre. Hecho con React + TypeScript.
+          © 2026 Franco Aguirre.
         </p>
         <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent"></div>
       </footer>
