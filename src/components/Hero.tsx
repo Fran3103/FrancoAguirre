@@ -1,64 +1,140 @@
-
-import React from 'react';
-
-const Hero: React.FC = () => {
+import {
+  FiArrowRight,
+  FiChevronDown,
+  FiDownload,
+  FiGithub,
+  FiMail,
+} from "react-icons/fi";
+function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+    <section
+      id="home"
+      className="relative flex min-h-screen scroll-mt-24 items-center overflow-hidden pb-20 pt-32"
+    >
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl lg:text-7xl font-bold tracking-tighter leading-tight mb-6">
-            FRANCO AGUIRRE<br />
-          
-            <span className="text-brand-cyan text-4xl lg:text-6xl">  DESARROLLADOR <br /> JAVA</span>
-          </h1>
-          
-          <div className="font-mono bg-brand-card/50 p-6 rounded-lg border border-brand-border mb-8 max-w-xl mx-auto lg:mx-0">
-            <p className="text-brand-cyan mb-2 text-sm md:text-base">
-              <span className="text-pink-500">{`> `}</span>
-              Enfocado en Java con Spring Boot.
-            </p>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Construyo APIs REST y aplicaciones web con foco en backend. Spring Security, Flyway, Swagger, Docker y Postman en el flujo de trabajo. DB: PostgreSQL/MySQL. También desarrollo UI con React/TypeScript cuando el proyecto lo requiere.
-            </p>
-          </div>
+          <p className="mb-6 font-mono text-sm uppercase tracking-[0.25em] text-brand-cyan">
+            Backend · APIs REST · Bases de datos
+          </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#projects" className="group relative bg-brand-cyan text-brand-dark font-bold px-8 py-4 rounded-lg overflow-hidden transition-all hover:shadow-neon-strong text-center">
-              <span className="relative z-10 uppercase tracking-widest flex items-center justify-center gap-2">
-                Ver Proyectos
-                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
+          <h1 className="mb-7 text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+            Franco Aguirre
+            <span className="mt-3 block text-3xl text-brand-cyan md:text-5xl lg:text-6xl">
+              Desarrollador Backend Java
+            </span>
+          </h1>
+
+          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-gray-400 md:text-lg lg:mx-0">
+            Desarrollo aplicaciones backend con Java, Spring Boot, APIs REST y
+            bases de datos SQL. Complemento mi perfil con testing QA y análisis
+            funcional, aplicando validaciones, documentación y comprensión de
+            requerimientos durante todo el ciclo de desarrollo.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-cyan px-6 py-3 font-bold text-brand-dark transition-all hover:shadow-neon-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+            >
+              Ver proyectos
+              <FiArrowRight aria-hidden="true" />
             </a>
-            <a href="#contact" className="px-8 py-4 border border-brand-border rounded-lg text-gray-400 hover:text-brand-cyan hover:border-brand-cyan transition-all text-center uppercase tracking-widest font-bold">
+
+            <a
+              href="/Franco_Aguirre_CV.pdf"
+              download="Franco_Aguirre_CV.pdf"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-border px-6 py-3 font-bold text-gray-300 transition-colors hover:border-brand-cyan hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+            >
+              <FiDownload aria-hidden="true" />
+              Descargar CV
+            </a>
+
+            <a
+              href="https://github.com/Fran3103"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-border px-6 py-3 font-bold text-gray-300 transition-colors hover:border-brand-cyan hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+            >
+              <FiGithub aria-hidden="true" />
+              GitHub
+            </a>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-brand-border px-6 py-3 font-bold text-gray-300 transition-colors hover:border-brand-cyan hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+            >
+              <FiMail aria-hidden="true" />
               Contacto
             </a>
           </div>
         </div>
 
-        <div className="hidden lg:flex justify-center items-center">
-          <div className="relative w-96 h-96">
-            <div className="absolute inset-0 border-2 border-brand-cyan/20 rounded-3xl animate-pulse"></div>
-            <div className="absolute inset-4 border-4 border-brand-cyan/10 rounded-2xl"></div>
-            <div className="absolute inset-8 bg-brand-dark border-2 border-brand-cyan/30 rounded-xl flex items-center justify-center overflow-hidden">
-              <div className="grid grid-cols-6 grid-rows-6 gap-2 w-full h-full p-4 opacity-40">
-                {[...Array(36)].map((_, i) => (
-                  <div key={i} className="bg-brand-cyan/20 rounded-sm"></div>
-                ))}
+        <div className="hidden lg:block" aria-hidden="true">
+          <div className="relative rounded-3xl border border-brand-border bg-brand-card/70 p-6 shadow-2xl">
+            <div className="mb-6 flex items-center justify-between border-b border-brand-border pb-4">
+              <div className="flex gap-2">
+                <span className="h-3 w-3 rounded-full bg-red-400/70" />
+                <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
+                <span className="h-3 w-3 rounded-full bg-green-400/70" />
               </div>
-              <div className="absolute z-10 flex flex-col items-center">
-                <div className="bg-brand-dark/90 px-4 py-2 border border-brand-cyan/50 text-brand-cyan font-mono text-xs rounded mb-2">
-                  SPRING_INITIALIZED
-                </div>
-                <div className="text-[10px] text-gray-500 font-mono">Status: 200 OK</div>
-              </div>
+
+              <span className="font-mono text-xs text-gray-500">
+                backend-service.java
+              </span>
+            </div>
+
+            <div className="space-y-3 font-mono text-sm">
+              <p>
+                <span className="text-pink-400">@RestController</span>
+              </p>
+
+              <p>
+                <span className="text-purple-400">public class</span>{" "}
+                <span className="text-brand-cyan">BackendController</span> {"{"}
+              </p>
+
+              <p className="pl-5 text-gray-400">
+                Java · Spring Boot · APIs REST
+              </p>
+
+              <p className="pl-5 text-gray-400">PostgreSQL · JPA · Hibernate</p>
+
+              <p className="pl-5 text-gray-400">Security · Testing · Swagger</p>
+
+              <p>{"}"}</p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-3">
+              {["Spring Boot", "PostgreSQL", "Spring Security", "JUnit"].map(
+                (technology) => (
+                  <div
+                    key={technology}
+                    className="rounded-lg border border-brand-border bg-brand-dark/80 px-3 py-3 text-center font-mono text-xs text-gray-400"
+                  >
+                    {technology}
+                  </div>
+                ),
+              )}
+            </div>
+
+            <div className="absolute -bottom-4 -right-4 rounded-lg border border-brand-cyan/40 bg-brand-dark px-4 py-2 font-mono text-xs text-brand-cyan shadow-neon">
+              API_READY
             </div>
           </div>
         </div>
       </div>
+      <a
+        href="#profile"
+        aria-label="Continuar hacia la sección Perfil"
+        className="absolute bottom-6 left-1/2 z-20 inline-flex -translate-x-1/2 rounded-full border border-brand-cyan/20 p-3 text-brand-cyan/50 transition-all hover:border-brand-cyan/60 hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+      >
+        <FiChevronDown
+          aria-hidden="true"
+          className="text-3xl pt-2 motion-safe:animate-bounce motion-reduce:animate-none"
+        />
+      </a>
     </section>
   );
-};
+}
 
 export default Hero;

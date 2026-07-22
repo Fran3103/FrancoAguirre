@@ -1,109 +1,247 @@
-import { Project } from "@/types";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
+import {
+  FiBookOpen,
+  FiCheck,
+  FiExternalLink,
+  FiGithub,
+} from 'react-icons/fi';
+import type { Project } from '../types';
 
-type ProjectCardProps = {
+interface ProjectCardProps {
   project: Project;
-  key?: number | string;
-};
+  featured?: boolean;
+}
 
-function ProjectCard({ project }: ProjectCardProps) {
-  const images = project.image ?? [];
-  const hasImages = images.length > 0;
-
-  const [active, setActive] = useState(0);
+function ProjectCard({
+  project,
+  featured = false,
+}: ProjectCardProps) {
+  const [activeImage, setActiveImage] = useState(0);
   const timerRef = useRef<number | null>(null);
 
-  const startAuto = () => {
-    if (images.length <= 1) return;
-    stopAuto();
+  const startCarousel = () => {
+    if (project.images.length <= 1) {
+      return;
+    }
+
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current);
+    }
+
     timerRef.current = window.setInterval(() => {
-      setActive((prev) => (prev + 1) % images.length);
-    }, 1200);
+      setActiveImage(
+        (current) => (current + 1) % project.images.length,
+      );
+    }, 1800);
   };
 
-  const stopAuto = () => {
-    if (timerRef.current) window.clearInterval(timerRef.current);
-    timerRef.current = null;
-    setActive(0); // vuelve a la primera cuando salís
+  const stopCarousel = () => {
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    setActiveImage(0);
   };
 
   useEffect(() => {
-    return () => stopAuto();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => {
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+      }
+    };
   }, []);
 
+  const visibleFeatures = featured
+    ? project.features
+    : project.features.slice(0, 4);
+
   return (
-    <div
-      className="bg-brand-card/50 border border-brand-border rounded-3xl p-6 md:p-8 flex flex-col h-full hover:border-brand-cyan/30 transition-all group"
-      onMouseEnter={startAuto}
-      onMouseLeave={stopAuto}
+    <article
+      className={`overflow-hidden rounded-3xl border bg-brand-card/50 transition-colors ${
+        featured
+          ? 'border-brand-cyan/30 shadow-neon'
+          : 'border-brand-border hover:border-brand-cyan/30'
+      }`}
     >
-      <h3 className="text-xl md:text-2xl font-bold mb-4 uppercase tracking-tight group-hover:text-brand-cyan transition-colors">
-        {project.title}
-      </h3>
+      <div
+        className={
+          featured
+            ? 'grid lg:grid-cols-[1.05fr_0.95fr]'
+            : 'flex h-full flex-col'
+        }
+      >
+        <div
+          className={`relative overflow-hidden border-brand-border bg-brand-dark ${
+            featured
+              ? 'min-h-[300px] border-b lg:min-h-full lg:border-b-0 lg:border-r'
+              : 'h-56 border-b'
+          }`}
+          onMouseEnter={startCarousel}
+          onMouseLeave={stopCarousel}
+        >
+          <div className="absolute left-4 top-4 z-10 flex gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+          </div>
 
-      <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-        {project.description}
-      </p>
+          <div className="absolute right-4 top-4 z-10 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-1 font-mono text-[10px] text-gray-400">
+            {activeImage + 1}/{project.images.length}
+          </div>
 
-      <div className="flex-grow bg-brand-dark/80 rounded-2xl border border-brand-border p-6 mb-8 relative overflow-hidden">
-        <div className="absolute top-3 left-3 flex gap-1.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+          <img
+            src={project.images[activeImage]}
+            alt={`Captura de ${project.title} ${activeImage + 1}`}
+            className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
+              featured ? 'min-h-[380px]' : 'h-56'
+            }`}
+            loading={featured ? 'eager' : 'lazy'}
+          />
+
+          {project.images.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-2">
+              {project.images.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  aria-label={`Mostrar captura ${index + 1} de ${project.title}`}
+                  className={`h-2 rounded-full transition-all ${
+                    activeImage === index
+                      ? 'w-6 bg-brand-cyan'
+                      : 'w-2 bg-gray-600 hover:bg-gray-400'
+                  }`}
+                  onClick={() => setActiveImage(index)}
+                />
+              ))}
+            </div>
+          )}
         </div>
-        <div className="absolute top-3 right-3 flex gap-1.5">
-         
-          <a
-           href={project.github ? project.github : undefined}
-            className="px-3 py-1 bg-brand-border text-gray-400 text-[10px] font-bold uppercase rounded-full"
+
+        <div
+          className={`flex flex-1 flex-col ${
+            featured ? 'p-7 md:p-10' : 'p-6'
+          }`}
+        >
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <p className="font-mono text-xs uppercase tracking-widest text-brand-cyan">
+              {project.category}
+            </p>
+
+            <span className="rounded-full border border-brand-border bg-brand-dark px-3 py-1 text-[10px] uppercase tracking-wider text-gray-400">
+              {project.status}
+            </span>
+          </div>
+
+          <h3
+            className={`mb-4 font-bold tracking-tight ${
+              featured ? 'text-4xl' : 'text-2xl'
+            }`}
           >
-            {project.github ? 'GitHub' : 'No GitHub'}
-          </a>
-          <a href={project.demo ? project.demo : undefined} className="px-3 py-1 bg-brand-border text-gray-400 text-[10px] font-bold uppercase rounded-full"
-          >{project.demo ? 'Demo' : 'No Demo'}</a>
-    
-        </div>
-        {hasImages ? (
-          <>
-            <img
-              src={images[active]}
-              alt={`${project.title} screenshot ${active + 1}`}
-              className="mt-8 w-full h-44 md:h-52 object-cover rounded-lg border border-brand-border shadow-lg
-                         opacity-90 group-hover:opacity-100 transition-all duration-500"
-              loading="lazy"
-            />
+            {project.title}
+          </h3>
 
-            {images.length > 1 && (
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                {images.map((_, idx) => (
-                  <span
-                    key={idx}
-                    className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      idx === active ? "bg-brand-cyan" : "bg-gray-600/50"
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
-          </>
-        ) : (
-          <p className="text-gray-600 italic text-center mt-12">
-            Diagrama no disponible
+          <p className="mb-7 leading-relaxed text-gray-400">
+            {project.summary}
           </p>
-        )}
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 bg-brand-border text-gray-400 text-[10px] font-bold uppercase rounded-full"
+
+          <div
+            className={`mb-7 grid gap-5 ${
+              featured ? 'md:grid-cols-2' : ''
+            }`}
           >
-            {tag}
-          </span>
-        ))}
+            <div>
+              <h4 className="mb-2 text-sm font-bold uppercase tracking-wider text-white">
+                Problema
+              </h4>
+
+              <p className="text-sm leading-relaxed text-gray-400">
+                {project.problem}
+              </p>
+            </div>
+
+            <div>
+              <h4 className="mb-2 text-sm font-bold uppercase tracking-wider text-white">
+                Solución
+              </h4>
+
+              <p className="text-sm leading-relaxed text-gray-400">
+                {project.solution}
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-7">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
+              Funcionalidades comprobables
+            </h4>
+
+            <ul className="space-y-3">
+              {visibleFeatures.map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-3 text-sm leading-relaxed text-gray-400"
+                >
+                  <FiCheck
+                    aria-hidden="true"
+                    className="mt-1 shrink-0 text-brand-cyan"
+                  />
+
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mb-7 flex flex-wrap gap-3">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-brand-cyan px-4 py-2 text-sm font-bold text-brand-dark transition-all hover:shadow-neon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+            >
+              <FiGithub aria-hidden="true" />
+              Código
+            </a>
+
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-border px-4 py-2 text-sm font-bold text-gray-300 transition-colors hover:border-brand-cyan hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+              >
+                <FiExternalLink aria-hidden="true" />
+                Demo
+              </a>
+            )}
+
+            {project.docs && (
+              <a
+                href={project.docs}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-border px-4 py-2 text-sm font-bold text-gray-300 transition-colors hover:border-brand-cyan hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+              >
+                <FiBookOpen aria-hidden="true" />
+                Documentación
+              </a>
+            )}
+          </div>
+
+          <div className="mt-auto flex flex-wrap gap-2 border-t border-brand-border pt-6">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-brand-dark px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-gray-400"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
   );
 }
 

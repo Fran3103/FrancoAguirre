@@ -1,54 +1,160 @@
+import {
+  FiCheckCircle,
+  FiLayers,
+  FiServer,
+} from 'react-icons/fi';
 
-import React from 'react';
-import { TechItem } from '../../types';
-
-const TECH_ITEMS: TechItem[] = [
-  { name: 'Java', category: 'Lenguaje Principal', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'Spring Boot', category: 'Framework Backend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-  { name: 'Spring Security', category: 'Seguridad', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-  { name: 'Arquitectura y APIs', category: 'Arquitectura', icon: 'https://img.icons8.com/ios-filled/50/00f5d4/flow-chart.png' },
-  
-  
-  { name: 'PosgreSQL', category: 'Bases de Datos', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'MySQL', category: 'Bases de Datos', icon: 'https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/mysql/mysql-original.svg' },
-  { name: 'Swagger', category: 'Documentación API', icon: 'https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/swagger/swagger-original.svg' },
-  { name: 'Flyway', category: 'Migración DB', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@16.6.0/icons/flyway.svg' },
-  { name: 'Postman', category: 'Testing API', icon: 'https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg' },
-  { name: 'Docker', category: 'Entornos', icon: 'https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons/docker/docker-original.svg' },
-  { name: 'React JS', category: 'Frontend', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'TypeScript', category: 'Tipado', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },{ name: 'Tailwind', category: 'Estilado', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'HTML/CSS', category: 'Bases Web', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+const PRINCIPAL_STACK = [
+  'Java',
+  'Spring Boot',
+  'Spring Security',
+  'APIs REST',
+  'JPA / Hibernate',
+  'SQL',
+  'PostgreSQL',
+  'Flyway',
 ];
 
-const TechStack: React.FC = () => {
+const QUALITY_STACK = [
+  'JUnit',
+  'Mockito',
+  'Postman',
+  'Swagger / OpenAPI',
+  'Git / GitHub',
+  'Docker',
+  'GitHub Actions / CI',
+];
+
+const COMPLEMENTARY_STACK = [
+  'React',
+  'TypeScript',
+  'JavaScript',
+  'HTML / CSS',
+  'QA Manual',
+  'Análisis funcional',
+  'User Stories',
+  'UML',
+  'Scrum',
+];
+
+const chipClass =
+  'rounded-full border border-brand-border bg-brand-dark px-4 py-2 font-mono text-xs text-gray-300 transition-colors hover:border-brand-cyan/50 hover:text-brand-cyan';
+
+function TechStack() {
   return (
-    <section id="tech" className="py-24 bg-brand-dark/50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-brand-cyan text-sm tracking-widest font-mono mb-2 uppercase">Stack Tecnológico</p>
-          <h2 className="text-4xl font-bold tracking-tighter uppercase">Herramientas & Tecnologías</h2>
+    <section
+      id="tech"
+      className="scroll-mt-24 border-y border-brand-border bg-brand-dark/50 py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-14 max-w-3xl">
+          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-brand-cyan">
+            Stack técnico
+          </p>
+
+          <h2 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
+            Tecnologías organizadas por especialización
+          </h2>
+
+          <p className="leading-relaxed text-gray-400">
+            Mi stack principal está orientado al desarrollo backend con Java.
+            Las herramientas de calidad, frontend y análisis complementan la
+            construcción y validación de las aplicaciones.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {TECH_ITEMS.map((item, idx) => (
-            <div 
-              key={idx} 
-              className="group relative bg-brand-card/30 border border-brand-border rounded-2xl p-6 flex flex-col items-center justify-center transition-all duration-300 hover:border-brand-cyan/50 hover:bg-brand-cyan/5 hover:shadow-neon"
-            >
-              <div className="w-12 h-12 mb-4 flex items-center justify-center p-2 rounded-xl bg-brand-dark border border-brand-border group-hover:border-brand-cyan/30 transition-colors">
-                <img src={item.icon} alt={item.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all" />
+        <article className="mb-8 overflow-hidden rounded-3xl border border-brand-cyan/30 bg-brand-card/60 p-7 shadow-neon md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+            <div>
+              <div className="mb-5 inline-flex rounded-xl border border-brand-cyan/30 bg-brand-cyan/10 p-3 text-2xl text-brand-cyan">
+                <FiServer aria-hidden="true" />
               </div>
-              <h3 className="text-sm font-bold mb-1 text-center">{item.name}</h3>
-              <p className="text-gray-500 text-[10px] font-mono uppercase tracking-widest">{item.category}</p>
-              
-              <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-brand-border group-hover:border-brand-cyan transition-colors"></div>
-              <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-brand-border group-hover:border-brand-cyan transition-colors"></div>
+
+              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-brand-cyan">
+                Especialización principal
+              </p>
+
+              <h3 className="mb-4 text-3xl font-bold tracking-tight">
+                Backend Java
+              </h3>
+
+              <p className="text-sm leading-relaxed text-gray-400">
+                Desarrollo de APIs, lógica de negocio, persistencia, seguridad
+                y migraciones de bases de datos.
+              </p>
             </div>
-          ))}
+
+            <div className="flex flex-wrap gap-3">
+              {PRINCIPAL_STACK.map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-full border border-brand-cyan/30 bg-brand-cyan/5 px-5 py-3 font-mono text-sm font-medium text-gray-200 transition-colors hover:bg-brand-cyan/10 hover:text-brand-cyan"
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+          <article className="rounded-3xl border border-brand-border bg-brand-card/40 p-7 md:p-8">
+            <div className="mb-5 inline-flex rounded-xl border border-brand-border bg-brand-dark p-3 text-xl text-brand-cyan">
+              <FiCheckCircle aria-hidden="true" />
+            </div>
+
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-brand-cyan">
+              Calidad y herramientas
+            </p>
+
+            <h3 className="mb-4 text-2xl font-bold">
+              Pruebas, documentación y flujo de trabajo
+            </h3>
+
+            <p className="mb-7 text-sm leading-relaxed text-gray-400">
+              Herramientas utilizadas para probar APIs, documentar contratos,
+              gestionar versiones y automatizar verificaciones.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {QUALITY_STACK.map((technology) => (
+                <span key={technology} className={chipClass}>
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-3xl border border-brand-border bg-brand-card/40 p-7 md:p-8">
+            <div className="mb-5 inline-flex rounded-xl border border-brand-border bg-brand-dark p-3 text-xl text-brand-cyan">
+              <FiLayers aria-hidden="true" />
+            </div>
+
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-brand-cyan">
+              Conocimientos complementarios
+            </p>
+
+            <h3 className="mb-4 text-2xl font-bold">
+              Frontend, testing y análisis
+            </h3>
+
+            <p className="mb-7 text-sm leading-relaxed text-gray-400">
+              Conocimientos que utilizo para integrar interfaces, comprender
+              requerimientos y evaluar la aplicación más allá del código.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {COMPLEMENTARY_STACK.map((technology) => (
+                <span key={technology} className={chipClass}>
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </article>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default TechStack;
