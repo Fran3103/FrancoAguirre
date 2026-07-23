@@ -20,7 +20,7 @@ const FORMAL_EDUCATION = [
     id: "functional-analyst",
     institution: "Educación IT",
     title: "Carrera Analista de Negocios – Functional Analyst",
-    status: "Trayecto finalizado",
+    status: "Finalizado",
     description:
       "Formación en análisis funcional, gestión de proyectos, User Stories, Scrum, OKR y UML. Certificado integral en trámite.",
   },
