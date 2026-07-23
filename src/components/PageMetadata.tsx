@@ -6,7 +6,7 @@ interface PageMetadataProps {
   path: string;
 }
 
-const SITE_URL = 'https://francoaguirre.vercel.app';
+const SITE_URL = 'https://franaguirredev.com';
 
 function PageMetadata({
   title,

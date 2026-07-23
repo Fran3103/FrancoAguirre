@@ -9,7 +9,7 @@ const EDUCATION_ITEMS = [
   {
     institution: 'Educación IT',
     title: 'Carrera Analista de Negocios – Functional Analyst',
-    status: 'Trayecto finalizado · Certificado integral en trámite',
+    status: 'Finalizado · Certificado integral en trámite',
   },
   {
     institution: 'Educación IT',

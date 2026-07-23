@@ -6,7 +6,7 @@ El sitio fue desarrollado como una SPA responsive con React, TypeScript y Tailwi
 
 ## Sitio publicado
 
-**[Ver portfolio en producción](https://francoaguirre.vercel.app/)**
+**[Ver portfolio en producción](https://franaguirredev.com/)**
 
 ## Características principales
 
@@ -154,4 +154,4 @@ Permite revisar localmente la versión generada para producción.
 
 - [LinkedIn](https://www.linkedin.com/in/franconahuelaguirre/)
 - [GitHub](https://github.com/Fran3103)
-- [Portfolio](https://francoaguirre.vercel.app/)
+- [Portfolio](https://franaguirredev.com/)

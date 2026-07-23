@@ -110,7 +110,7 @@ function CertificationsPage() {
               id="formal-education-title"
               className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
             >
-              Trayectos formativos
+              Educación formal y certificaciones
             </h2>
 
             <p className="leading-relaxed text-gray-400">
@@ -213,7 +213,7 @@ function CertificationsPage() {
 
         <div className="mt-24 rounded-3xl border border-brand-cyan/20 bg-brand-cyan/5 p-8 text-center md:p-12">
           <h2 className="mb-4 text-2xl font-bold md:text-3xl">
-            Formación aplicada a proyectos reales
+            Formación aplicada en proyectos backend y full stack
           </h2>
 
           <p className="mx-auto mb-7 max-w-2xl leading-relaxed text-gray-400">
