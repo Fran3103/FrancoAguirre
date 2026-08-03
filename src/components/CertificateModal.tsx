@@ -79,7 +79,7 @@ function CertificateModal({ certificate, onClose }: CertificateModalProps) {
 
         <div className="min-h-0 flex-1 bg-gray-950 p-2 md:p-4">
           {isMobile && certificate.certificateImageUrl ? (
-            <div className="h-full overflow-y-auto mt-3 flex items-center justify-center rounded-lg border border-brand-border bg-gray-950 p-2 md:p-4">
+            <div className="h-full overflow-y-auto  flex items-center justify-center rounded-lg border border-brand-border bg-gray-950 p-2 md:p-4">
               <img
                 src={certificate.certificateImageUrl}
                 alt={`Certificado: ${certificate.title}`}
