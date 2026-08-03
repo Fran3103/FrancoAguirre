@@ -11,6 +11,7 @@ const STATUS_CLASSES: Record<CertificateStatus, string> = {
   Finalizado: "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
   "En curso": "border-yellow-400/30 bg-yellow-400/10 text-yellow-300",
   Participación: "border-gray-400/30 bg-gray-400/10 text-gray-300",
+  "En Curso - Titulo Intermedio": "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
 };
 
 function CertificateCard({ certificate, onView }: CertificateCardProps) {
@@ -22,7 +23,7 @@ function CertificateCard({ certificate, onView }: CertificateCardProps) {
           : "border-brand-border hover:border-brand-cyan/40"
       }`}
     >
-      <div className="mb-5 flex items-start justify-between gap-4">
+      <div className="mb-5 flex items-center justify-between gap-4">
         <div className="inline-flex rounded-xl border border-brand-border bg-brand-dark p-3 text-xl text-brand-cyan">
           <FiAward aria-hidden="true" />
         </div>

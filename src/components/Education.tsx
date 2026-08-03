@@ -4,7 +4,7 @@ const EDUCATION_ITEMS = [
   {
     institution: 'Teclab',
     title: 'Tecnicatura en Programación',
-    status: 'En curso',
+    status: 'En curso - Titulo intermedio',
   },
   {
     institution: 'Educación IT',
