@@ -1,18 +1,16 @@
-import { useEffect, useRef } from 'react';
-import { FiExternalLink, FiX } from 'react-icons/fi';
-import type { Certificate } from '../types';
+import { useEffect, useRef } from "react";
+import { FiExternalLink, FiX } from "react-icons/fi";
+import type { Certificate } from "../types";
+import { useMediaQuery } from "../utils/useMediaQuery";
 
 interface CertificateModalProps {
   certificate: Certificate | null;
   onClose: () => void;
 }
 
-function CertificateModal({
-  certificate,
-  onClose,
-}: CertificateModalProps) {
+function CertificateModal({ certificate, onClose }: CertificateModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-
+  const isMobile = useMediaQuery("(max-width: 767px)");
   useEffect(() => {
     if (!certificate) {
       return;
@@ -20,20 +18,20 @@ function CertificateModal({
 
     const previousOverflow = document.body.style.overflow;
 
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
     const closeWithEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         onClose();
       }
     };
 
-    window.addEventListener('keydown', closeWithEscape);
+    window.addEventListener("keydown", closeWithEscape);
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', closeWithEscape);
+      window.removeEventListener("keydown", closeWithEscape);
     };
   }, [certificate, onClose]);
 
@@ -43,7 +41,7 @@ function CertificateModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-2 backdrop-blur-sm md:p-6"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-2 backdrop-blur-sm md:p-6 mt-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="certificate-modal-title"
@@ -53,7 +51,7 @@ function CertificateModal({
         }
       }}
     >
-      <div className="flex h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-brand-border bg-brand-card shadow-2xl md:h-[88vh]">
+      <div className="flex h-[85vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-brand-border bg-brand-card shadow-2xl md:h-[88vh]">
         <header className="flex items-start justify-between gap-4 border-b border-brand-border px-5 py-4 md:px-6">
           <div>
             <p className="mb-1 font-mono text-xs uppercase tracking-widest text-brand-cyan">
@@ -80,11 +78,25 @@ function CertificateModal({
         </header>
 
         <div className="min-h-0 flex-1 bg-gray-950 p-2 md:p-4">
-          <iframe
-            src={certificate.certificateUrl}
-            title={`Certificado: ${certificate.title}`}
-            className="h-full w-full rounded-lg border-0 bg-white"
-          />
+          {isMobile && certificate.certificateImageUrl ? (
+            <div className="h-full overflow-y-auto mt-3 flex items-center justify-center rounded-lg border border-brand-border bg-gray-950 p-2 md:p-4">
+              <img
+                src={certificate.certificateImageUrl}
+                alt={`Certificado: ${certificate.title}`}
+                className="block w-full h-auto object-contain"
+              />
+            </div>
+          ) : certificate.certificateUrl ? (
+            <iframe
+              src={`${certificate.certificateUrl}#view=FitH`}
+              title={`Certificado: ${certificate.title}`}
+              className="w-full h-full min-h-[70vh] border-0"
+            />
+          ) : (
+            <p className="p-6 text-center text-gray-400">
+              Certificado no disponible.
+            </p>
+          )}
         </div>
 
         <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-border px-5 py-4 md:px-6">

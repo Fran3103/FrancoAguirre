@@ -24,7 +24,8 @@ export type CertificateStatus =
   | 'Aprobado'
   | 'Finalizado'
   | 'En curso'
-  | 'Participación';
+  | 'Participación'
+  | 'En Curso - Titulo Intermedio';
 
 export interface Certificate {
   id: string;
@@ -36,5 +37,6 @@ export interface Certificate {
   duration?: string;
   note?: string;
   certificateUrl?: string;
+  certificateImageUrl?: string;
   featured?: boolean;
 }

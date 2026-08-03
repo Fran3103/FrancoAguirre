@@ -12,7 +12,7 @@ const FORMAL_EDUCATION = [
     id: "teclab-programacion",
     institution: "Teclab Instituto Técnico Superior",
     title: "Tecnicatura en Programación",
-    status: "En curso",
+    status: "En curso - Titulo intermedio",
     description:
       "Formación superior orientada a programación, desarrollo de software y fundamentos técnicos.",
   },
@@ -125,7 +125,7 @@ function CertificationsPage() {
                 key={education.id}
                 className="rounded-2xl border border-brand-border bg-brand-card/40 p-6 transition-colors hover:border-brand-cyan/40"
               >
-                <div className="mb-5 flex items-start justify-between gap-4">
+                <div className="mb-5 flex items-center justify-between gap-4">
                   <p className="font-mono text-xs uppercase tracking-widest text-brand-cyan">
                     {education.institution}
                   </p>
