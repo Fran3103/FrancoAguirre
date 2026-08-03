@@ -100,9 +100,14 @@ function CertificateModal({ certificate, onClose }: CertificateModalProps) {
         </div>
 
         <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-border px-5 py-4 md:px-6">
-          <p className="text-xs text-gray-500">
-            Podés cerrar esta ventana presionando Escape.
-          </p>
+          {isMobile ? (
+           <></>
+          ) :
+          (
+             <p className="text-xs text-gray-500">
+              Podés cerrar esta ventana presionando Escape.
+            </p>
+          )}
 
           <a
             href={certificate.certificateUrl}
