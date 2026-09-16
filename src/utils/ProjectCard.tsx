@@ -1,26 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
-import {
-  FiBookOpen,
-  FiCheck,
-  FiExternalLink,
-  FiGithub,
-} from 'react-icons/fi';
-import type { Project } from '../types';
+import { useEffect, useRef, useState } from "react";
+import { FiBookOpen, FiCheck, FiExternalLink, FiGithub } from "react-icons/fi";
+import type { Project } from "../types";
 
 interface ProjectCardProps {
   project: Project;
   featured?: boolean;
 }
 
-function ProjectCard({
-  project,
-  featured = false,
-}: ProjectCardProps) {
+function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const [activeImage, setActiveImage] = useState(0);
   const timerRef = useRef<number | null>(null);
-
+  const images = project.images ?? [];
+  const hasVideo = Boolean(project.video);
+  const hasImages = images.length > 0;
   const startCarousel = () => {
-    if (project.images.length <= 1) {
+    if (hasVideo || images.length <= 1) {
       return;
     }
 
@@ -29,12 +23,9 @@ function ProjectCard({
     }
 
     timerRef.current = window.setInterval(() => {
-      setActiveImage(
-        (current) => (current + 1) % project.images.length,
-      );
+      setActiveImage((current) => (current + 1) % images.length);
     }, 1800);
   };
-
   const stopCarousel = () => {
     if (timerRef.current) {
       window.clearInterval(timerRef.current);
@@ -60,22 +51,22 @@ function ProjectCard({
     <article
       className={`overflow-hidden rounded-3xl border bg-brand-card/50 transition-colors ${
         featured
-          ? 'border-brand-cyan/30 shadow-neon'
-          : 'border-brand-border hover:border-brand-cyan/30'
+          ? "border-brand-cyan/30 shadow-neon"
+          : "border-brand-border hover:border-brand-cyan/30"
       }`}
     >
       <div
         className={
           featured
-            ? 'grid lg:grid-cols-[1.05fr_0.95fr]'
-            : 'flex h-full flex-col'
+            ? "grid lg:grid-cols-[1.05fr_0.95fr]"
+            : "flex h-full flex-col"
         }
       >
         <div
           className={`relative overflow-hidden border-brand-border bg-brand-dark ${
             featured
-              ? 'min-h-[300px] border-b lg:min-h-full lg:border-b-0 lg:border-r'
-              : 'h-56 border-b'
+              ? "min-h-75 border-b lg:min-h-full lg:border-b-0 lg:border-r"
+              : "h-56 border-b"
           }`}
           onMouseEnter={startCarousel}
           onMouseLeave={stopCarousel}
@@ -86,42 +77,60 @@ function ProjectCard({
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
           </div>
 
-          <div className="absolute right-4 top-4 z-10 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-1 font-mono text-[10px] text-gray-400">
-            {activeImage + 1}/{project.images.length}
-          </div>
+          {hasVideo ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className={`h-full w-full object-contain ${
+                featured ? "min-h-75" : "h-56"
+              }`}
+            />
+          ) : (
+            hasImages && (
+              <>
+                <div className="absolute right-4 top-4 z-10 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-1 font-mono text-[10px] text-gray-400">
+                  {activeImage + 1}/{images?.length}
+                </div>
 
-          <img
-            src={project.images[activeImage]}
-            alt={`Captura de ${project.title} ${activeImage + 1}`}
-            className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
-              featured ? 'min-h-[380px]' : 'h-56'
-            }`}
-            loading={featured ? 'eager' : 'lazy'}
-          />
-
-          {project.images.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-2">
-              {project.images.map((image, index) => (
-                <button
-                  key={image}
-                  type="button"
-                  aria-label={`Mostrar captura ${index + 1} de ${project.title}`}
-                  className={`h-2 rounded-full transition-all ${
-                    activeImage === index
-                      ? 'w-6 bg-brand-cyan'
-                      : 'w-2 bg-gray-600 hover:bg-gray-400'
+                <img
+                  src={project.images?.[activeImage]}
+                  alt={`Captura de ${project.title} ${activeImage + 1}`}
+                  className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
+                    featured ? "min-h-95" : "h-56"
                   }`}
-                  onClick={() => setActiveImage(index)}
+                  loading={featured ? "eager" : "lazy"}
                 />
-              ))}
-            </div>
+
+                {images.length && images.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2 rounded-full border border-brand-border bg-brand-dark/90 px-3 py-2">
+                    {images.map((image, index) => (
+                      <button
+                        key={image}
+                        type="button"
+                        aria-label={`Mostrar captura ${
+                          index + 1
+                        } de ${project.title}`}
+                        className={`h-2 rounded-full transition-all ${
+                          activeImage === index
+                            ? "w-6 bg-brand-cyan"
+                            : "w-2 bg-gray-600 hover:bg-gray-400"
+                        }`}
+                        onClick={() => setActiveImage(index)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
+            )
           )}
         </div>
 
         <div
-          className={`flex flex-1 flex-col ${
-            featured ? 'p-7 md:p-10' : 'p-6'
-          }`}
+          className={`flex flex-1 flex-col ${featured ? "p-7 md:p-10" : "p-6"}`}
         >
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
             <p className="font-mono text-xs uppercase tracking-widest text-brand-cyan">
@@ -135,7 +144,7 @@ function ProjectCard({
 
           <h3
             className={`mb-4 font-bold tracking-tight ${
-              featured ? 'text-4xl' : 'text-2xl'
+              featured ? "text-4xl" : "text-2xl"
             }`}
           >
             {project.title}
@@ -146,9 +155,7 @@ function ProjectCard({
           </p>
 
           <div
-            className={`mb-7 grid gap-5 ${
-              featured ? 'md:grid-cols-2' : ''
-            }`}
+            className={`mb-7 grid gap-5 ${featured ? "md:grid-cols-2" : ""}`}
           >
             <div>
               <h4 className="mb-2 text-sm font-bold uppercase tracking-wider text-white">

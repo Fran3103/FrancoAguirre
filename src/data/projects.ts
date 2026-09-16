@@ -37,13 +37,8 @@ export const PROJECTS: Project[] = [
     ],
     github: 'https://github.com/Fran3103/CocktailOps',
     docs: 'https://github.com/Fran3103/CocktailOps#readme',
-    images: [
-      '/cocktailOps/img-1.png',
-      '/cocktailOps/img-2.png',
-      '/cocktailOps/img-3.png',
-      '/cocktailOps/img-4.png',
-      '/cocktailOps/img-5.png',
-    ],
+    images: [],
+    video: '/cocktailOps/cocktailops-demo-portfolio.mp4',  
   },
   {
     id: 2,

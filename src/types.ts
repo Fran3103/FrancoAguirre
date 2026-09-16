@@ -11,7 +11,8 @@ export interface Project {
   github: string;
   demo?: string;
   docs?: string;
-  images: string[];
+  images?: string[];
+  video?: string;
 }
 
 export type CertificateCategory =
