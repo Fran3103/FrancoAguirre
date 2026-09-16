@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
       'Migraciones con Flyway y base de datos PostgreSQL.',
       'Docker Compose y validación continua con GitHub Actions.',
     ],
-    status: 'Flujo principal implementado · Deploy pendiente',
+    status: 'Publicado · Demo pública',
     tags: [
       'Java 17',
       'Spring Boot',
