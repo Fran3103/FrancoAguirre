@@ -36,9 +36,10 @@ export const PROJECTS: Project[] = [
       'GitHub Actions',
     ],
     github: 'https://github.com/Fran3103/CocktailOps',
-    docs: 'https://github.com/Fran3103/CocktailOps#readme',
+    docs: 'https://cocktailops.vercel.app/swagger-ui/index.html',
     images: [],
     video: '/cocktailOps/cocktailops-demo-portfolio.mp4',  
+    demo: 'https://cocktailops.vercel.app/'
   },
   {
     id: 2,
