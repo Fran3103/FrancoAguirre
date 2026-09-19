@@ -5,6 +5,7 @@ import TechStack from "../components/TechStack";
 import Education from "../components/Education";
 import Contact from "../components/Contact";
 import PageMetadata from "../components/PageMetadata";
+import Experience from "../components/Experience";
 function HomePage() {
   return (
     <>
@@ -15,6 +16,7 @@ function HomePage() {
       />
       <Hero />
       <Profile />
+      <Experience />
       <Projects />
       <TechStack />
       <Education />

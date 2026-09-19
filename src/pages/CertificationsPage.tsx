@@ -12,9 +12,9 @@ const FORMAL_EDUCATION = [
     id: "teclab-programacion",
     institution: "Teclab Instituto Técnico Superior",
     title: "Tecnicatura en Programación",
-    status: "En curso - Titulo intermedio",
+    status: "Pausada",
     description:
-      "Formación superior orientada a programación, desarrollo de software y fundamentos técnicos.",
+      "Título intermedio obtenido: Auxiliar en Programación. Tecnicatura actualmente pausada, con intención de retomarla para completar la carrera.",
   },
   {
     id: "functional-analyst",
@@ -31,6 +31,14 @@ const FORMAL_EDUCATION = [
     status: "En curso",
     description:
       "Formación orientada a testing manual, diseño de pruebas y calidad de software.",
+  },
+  {
+    id: "testing-ai",
+    institution: "Educación IT",
+    title: "Testing de Inteligencia Artificial",
+    status: "En curso",
+    description:
+      "Formación complementaria orientada a la evaluación, validación y testing de sistemas basados en inteligencia artificial.",
   },
 ];
 
@@ -66,8 +74,24 @@ const CATEGORY_INFORMATION: Record<
 function CertificationsPage() {
   const [selectedCertificate, setSelectedCertificate] =
     useState<Certificate | null>(null);
+
+  const HIDDEN_CERTIFICATE_IDS = new Set([
+    "analisis-funcional",
+    "gestion-proyectos",
+    "user-stories",
+    "scrum-fundamentos",
+    "okr-fundamentals",
+    "uml",
+  ]);
+
+  const visibleCertificates = CERTIFICATES.filter(
+    (certificate) => !HIDDEN_CERTIFICATE_IDS.has(certificate.id),
+  );
+
   const visibleCategories = CERTIFICATE_CATEGORIES.filter((category) =>
-    CERTIFICATES.some((certificate) => certificate.category === category),
+    visibleCertificates.some(
+      (certificate) => certificate.category === category,
+    ),
   );
   return (
     <section className="min-h-screen pb-24 pt-32">
@@ -169,7 +193,7 @@ function CertificationsPage() {
 
         <div className="space-y-24">
           {visibleCategories.map((category) => {
-            const categoryCertificates = CERTIFICATES.filter(
+            const categoryCertificates = visibleCertificates.filter(
               (certificate) => certificate.category === category,
             );
 

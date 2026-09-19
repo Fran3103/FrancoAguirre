@@ -9,12 +9,12 @@ interface NavbarProps {
 const SECTION_LINKS = [
   { label: 'Inicio', id: 'home' },
   { label: 'Perfil', id: 'profile' },
+  { label: 'Experiencia', id: 'experience' },
   { label: 'Proyectos', id: 'projects' },
   { label: 'Stack', id: 'tech' },
   { label: 'Formación', id: 'education' },
   { label: 'Contacto', id: 'contact' },
 ];
-
 const linkClass =
   'rounded-sm text-xs font-medium uppercase tracking-widest text-gray-400 transition-colors hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan';
 
@@ -80,15 +80,7 @@ function Navbar({ scrolled }: NavbarProps) {
             </a>
           ))}
 
-          <Link
-            to="/certificaciones"
-            className={linkClass}
-            aria-current={
-              location.pathname === '/certificaciones' ? 'page' : undefined
-            }
-          >
-            Certificaciones
-          </Link>
+         
         </div>
 
         <div className="flex shrink-0 items-center gap-3">
@@ -137,13 +129,6 @@ function Navbar({ scrolled }: NavbarProps) {
               </a>
             ))}
 
-            <Link
-              to="/certificaciones"
-              className="py-4 text-sm font-medium uppercase tracking-widest text-brand-cyan"
-              onClick={() => setMenuOpen(false)}
-            >
-              Certificaciones
-            </Link>
           </div>
         </div>
       )}

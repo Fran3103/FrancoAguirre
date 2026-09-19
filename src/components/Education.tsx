@@ -1,25 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const EDUCATION_ITEMS = [
   {
-    institution: 'Teclab',
-    title: 'Tecnicatura en Programación',
-    status: 'En curso - Titulo intermedio',
+    institution: "Teclab",
+    title: "Tecnicatura en Programación",
+    status:
+      "Título intermedio obtenido: Auxiliar en Programación · Carrera actualmente pausada",
   },
   {
-    institution: 'Educación IT',
-    title: 'Carrera Analista de Negocios – Functional Analyst',
-    status: 'Finalizado · Certificado integral en trámite',
+    institution: "Educación IT",
+    title: "Carrera Analista de Negocios – Functional Analyst",
+    status: "Finalizado · Certificado integral en trámite",
   },
   {
-    institution: 'Educación IT',
-    title: 'Carrera Testing QA – QA Manager',
-    status: 'En curso',
+    institution: "Educación IT",
+    title: "Carrera Testing QA – QA Manager",
+    status: "En curso",
   },
   {
-    institution: 'TodoCode Academy',
-    title: 'Cursos de Java y Spring',
-    status: 'Spring Boot · Spring Security · Spring Cloud',
+    institution: "Educación IT",
+    title: "Testing de Inteligencia Artificial",
+    status: "En curso",
+  },
+  {
+    institution: "TodoCode Academy",
+    title: "Cursos de Java y Spring",
+    status: "Spring Boot · Spring Security · Spring Cloud",
   },
 ];
 
