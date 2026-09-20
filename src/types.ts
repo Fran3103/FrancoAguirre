@@ -27,7 +27,7 @@ export type CertificateStatus =
   | 'En curso'
   | 'Participación'
   | 'En Curso - Titulo Intermedio'
-  | 'Título intermedio obtenido' ;
+  | 'Titulo intermedio obtenido' ;
 
 export interface Certificate {
   id: string;

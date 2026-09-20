@@ -27,7 +27,7 @@ export const CERTIFICATES: Certificate[] = [
     title: "Auxiliar en Programación",
     institution: "Teclab Instituto Técnico Superior",
     category: "Desarrollo web",
-    status: "Título intermedio obtenido",
+    status: "Titulo intermedio obtenido",
     date: "Ago-2025 - 2026",
     duration: "Título intermedio",
 

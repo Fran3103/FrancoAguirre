@@ -12,6 +12,7 @@ const STATUS_CLASSES: Record<CertificateStatus, string> = {
   "En curso": "border-yellow-400/30 bg-yellow-400/10 text-yellow-300",
   Participación: "border-gray-400/30 bg-gray-400/10 text-gray-300",
   "En Curso - Titulo Intermedio": "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
+  "Titulo intermedio obtenido": "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
 };
 
 function CertificateCard({ certificate, onView }: CertificateCardProps) {
